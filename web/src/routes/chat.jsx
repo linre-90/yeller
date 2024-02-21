@@ -20,7 +20,7 @@ export const Chat = () => {
         socket.emit("leave", {user: user, room: room});
         navigate("/");
     }
-
+    console.log(user)
     useEffect(() => {
         socket.auth = user;
         const onSysMessageEvent = (value) => setMessages(previous => [...previous, value]);

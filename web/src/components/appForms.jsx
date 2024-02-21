@@ -45,10 +45,10 @@ export const JoinNamedRoom = ({ formSubmitHandler }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        formSubmitHandler({
-            roomName: formFill.roomName,
-            username: formFill.username
-        });
+        // Add some random number to username.
+        const randomNumber = Math.floor(Math.random() * 9999);
+        const fullUsername = formFill.username.concat(randomNumber.toString());
+        formSubmitHandler({ roomName: formFill.roomName, username: fullUsername });
     }
 
     return (
