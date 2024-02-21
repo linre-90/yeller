@@ -1,3 +1,7 @@
+/**
+ * Render help pages.
+ * @returns 
+ */
 export const Help = () => {
     return(
         <div>

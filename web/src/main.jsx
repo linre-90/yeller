@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {Root} from "./routes/root"
 import{ createBrowserRouter, RouterProvider } from "react-router-dom"
-import "./App.css"
+import { Root } from "./routes/root"
 import { JoinRoom } from './routes/joinroom'
 import { Chat } from './routes/chat'
 import { Help } from './routes/help'
+import "./App.css"
 
-
+// Application pages, components are in routes directory.
 const router = createBrowserRouter([
     {
         path: "/",
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
     }
 ]);
 
+// Render in strict mode
 if(import.meta.env.VITE_ENABLE_STRICT_MODE === "1"){
     ReactDOM.createRoot(document.getElementById('root')).render(
         <React.StrictMode>

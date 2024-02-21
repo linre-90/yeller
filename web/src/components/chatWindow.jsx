@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss"
 
 const styles = createUseStyles({
@@ -22,9 +22,9 @@ const styles = createUseStyles({
 
 
 /**
- * Creates chat window that contains Message components
- * @param {{children: Message}} param0 
- * @returns 
+ * Creates chat window that contains Message components.
+ * @param {{children: Array<Message>}} props 
+ * @returns {React.JSX.Element}
  */
 export const ChatWindow = ({children}) => {
     const chatWindowRef = useRef(null);

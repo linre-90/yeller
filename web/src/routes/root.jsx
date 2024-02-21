@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import { AppLink } from "../components/appClicks"
 import { createUseStyles } from "react-jss"
 
@@ -40,15 +40,21 @@ const styles = createUseStyles({
 });
 
 /**
- * Render root login signup page
+ * Render root landing page.
+ * @returns {React.JSX.Element}
  */
 export const Root = () => {
     const classes = styles();
+    
     return (
         <>
             <p className={classes.mainHeader}>Yeller!</p>
             <p className={classes.secondaryHeader}><i>...Home for internet trolls since 2024...</i></p>
-            <p className={classes.warningTxt}>WARNING! Yeller is completely open discussion portal where anybody can write anything. There will be improper and hostile content. If you are sensitive to bad language, hate speech or other types of improper human behaviour please go back.</p>
+            <p className={classes.warningTxt}>
+                WARNING! Yeller is completely open discussion portal where anybody can write anything. 
+                There will be improper and hostile content. If you are sensitive to bad language,
+                hate speech or other types of improper human behaviour please go back.
+            </p>
             <p className={classes.helptext}>Seeking info about Yeller? Visit: <AppLink navigationAddress="/help" text="Get help!"/></p>
             <div className={classes.rootPage}>
                 <AppLink navigationAddress="/join" text="Join/Create room" />

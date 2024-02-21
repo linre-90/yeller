@@ -25,6 +25,10 @@ const styles = createUseStyles({
 export const Message = ({user, message}) => {
     const classes = styles();
 
+    /**
+     * Copy username to clipboard.
+     * @param {String} text 
+     */
     const copyUsername = (text) => {
         navigator.clipboard.writeText(`@${text} `);
     }

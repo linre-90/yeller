@@ -32,7 +32,7 @@ export const AppButton = ({text, actionCallback}) => {
 
 /**
  * Render application themed button.
- * @param {{navigationAddress: string}} props 
+ * @param {{text: string, navigationAddress: string}} props 
  * @returns Custom application button
  */
 export const AppLink = ({text, navigationAddress}) => {

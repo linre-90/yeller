@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss"
-import { useState } from "react";
+import React, { useState } from "react";
 
 const styles = createUseStyles({
     formContainer: {
@@ -36,8 +36,16 @@ const styles = createUseStyles({
 });
 
 /**
- * Render signup form.
- * @param {{formSubmitHandler: function}} props 
+ * @typedef {Object} formData
+ * @property {String} username
+ * @property {String} roomName
+ */
+
+/**
+ * Render join named room form. User must fill username and room name to join.
+ * Random number is added to username.
+ * @param {{formSubmitHandler: function(formData): void}} props 
+ * @returns {React.JSX.Element}
  */
 export const JoinNamedRoom = ({ formSubmitHandler }) => {
     const [formFill, setFormFill] = useState({username: "", roomName: ""});
