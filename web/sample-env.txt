@@ -1,0 +1,5 @@
+# Api root addres
+VITE_API_ADDRESS=http://localhost:5000
+
+# Enable or disable react strict mode, recommended on.
+VITE_ENABLE_STRICT_MODE=1

@@ -1,0 +1,11 @@
+# Secret app key
+SECRET_APP_KEY=
+
+#Port that server listens
+API_PORT = 
+
+# Db connection string
+DB_CONNECTION_STR = 
+
+# Flask debug mode
+FLASK_DEBUG_ON = 1
