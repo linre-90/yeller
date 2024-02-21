@@ -13,6 +13,7 @@ import { ChatInput } from '../components/chatInput';
 export const Chat = () => {
     const [messages, setMessages] = useState([]);
     const {room, user} = useParams();
+    const [respondUser, setRespondUser] = useState("");
     const navigate = useNavigate();
 
     /**
@@ -57,9 +58,15 @@ export const Chat = () => {
     return(
         <div>
             <ChatWindow>
-                { messages.map(message => <Message message={message.message} user={message.user} key={uuidv4()}/>).reverse() }
+                { messages.map(message => ( 
+                    <Message 
+                        highlight={message.message.includes(user)} 
+                        handleUsernameCopy={(username) => setRespondUser(username)} 
+                        message={message.message} user={message.user} key={uuidv4()}
+                    />)).reverse() 
+                }
             </ChatWindow>
-            <ChatInput handleMessageSend={sendMessage} handleLeave={disconnectRoom}/>
+            <ChatInput handleMessageSend={sendMessage} handleLeave={disconnectRoom} respondUser={respondUser} resetRespondUser={() => setRespondUser("")}/>
         </div>
     )
 }

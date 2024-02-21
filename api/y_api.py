@@ -50,6 +50,6 @@ def handle_message(data):
 
 if __name__ == '__main__':
     history = YChatHistory()
-    history.drop_db()
+    #history.drop_db()
     history.create_db()
     socketio.run(app, debug=os.getenv("FLASK_DEBUG_ON") == "1", port=os.getenv("API_PORT"))

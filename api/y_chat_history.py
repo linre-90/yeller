@@ -1,7 +1,9 @@
+import os
 import sqlite3
 from datetime import datetime
 
 class YChatHistory:
+    """Class for handling chat room history and database."""
     def __init__(self) -> None:
         self.connString = "chatHistory.db"
 
@@ -10,13 +12,14 @@ class YChatHistory:
         conn = sqlite3.connect(self.connString)
         cursor = conn.cursor()
         droppings = [
-             "DROP TABLE history;",
-             "DROP TABLE usage;"
+             "DROP TABLE IF EXISTS history;",
+             "DROP TABLE IF EXISTS usage;"
         ]
         for stmt in droppings:
             cursor.execute(stmt)
             conn.commit()
         conn.close()
+        self.__recreate_db_file()
 
     def create_db(self):
         """Initialize table for chat messages if it does not exists."""
@@ -79,3 +82,13 @@ class YChatHistory:
         cursor.execute(statement, (room, time))
         conn.commit()
         conn.close()
+
+    def __recreate_db_file(self):
+        """Re create database file."""
+        try:
+            os.remove(self.connString)
+        except FileNotFoundError as e:
+            print(e)
+        # Create file
+        with open(self.connString, "w+") as _:
+            pass
